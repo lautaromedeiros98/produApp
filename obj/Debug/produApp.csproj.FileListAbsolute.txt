@@ -1,0 +1,13 @@
+C:\Users\Lautaro\source\repos\produApp\produApp\bin\Debug\produApp.exe.config
+C:\Users\Lautaro\source\repos\produApp\produApp\bin\Debug\produApp.exe
+C:\Users\Lautaro\source\repos\produApp\produApp\bin\Debug\produApp.pdb
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.csprojAssemblyReference.cache
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.Form1.resources
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.Properties.Resources.resources
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.csproj.GenerateResource.cache
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.csproj.CoreCompileInputs.cache
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.exe
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.pdb
+C:\Users\Lautaro\source\repos\produApp\produApp\bin\Debug\Clases.dll
+C:\Users\Lautaro\source\repos\produApp\produApp\bin\Debug\Clases.pdb
+C:\Users\Lautaro\source\repos\produApp\produApp\obj\Debug\produApp.csproj.CopyComplete
