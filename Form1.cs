@@ -56,6 +56,11 @@ namespace produApp
 
 		private bool mostrarProdu(string IsRe)
 		{
+			if(textBox1.Text.Equals("raul"))
+			{
+				MessageBox.Show("RAULITO MAQUINA, LAUTICUEVAS GIL");
+				textBox1.Text = "";
+			}
 			foreach(Is aux in this._listaIs)
 			{
 				if(IsRe.Equals(aux.NumeroIs))
@@ -73,7 +78,6 @@ namespace produApp
 						else if(aux.Unidades>250)
 						{
 							MessageBox.Show("BUENA PRODU!!! \nLa is tiene " + aux.Unidades + " unidades");
-							MessageBox.Show("RAU MAQUINA, LAUTICUEVAS GIL");
 						}
 					}
 					this.textBox1.Text = "";
