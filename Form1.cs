@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Security;
 using System.IO;
 using Clases;
+using System.Diagnostics;
+
 namespace produApp
 {
 	public partial class Form1 : Form
@@ -44,7 +46,7 @@ namespace produApp
 				if(!string.IsNullOrEmpty(aux))
 				{
 					varAux = aux.Split(',');
-					Is isaux = new Is(varAux[0], varAux[1], float.Parse(varAux[6]), float.Parse(varAux[7]));
+					Is isaux = new Is(varAux[0], varAux[1],float.Parse(varAux[5]), float.Parse(varAux[6]), float.Parse(varAux[7]));
 					this._listaIs.Add(isaux);
 				}
 				else
@@ -65,21 +67,9 @@ namespace produApp
 			{
 				if(IsRe.Equals(aux.NumeroIs))
 				{
-					if(aux.Unidades<150)
-					{
-						MessageBox.Show("POCA PRODU!!! \nLa is tiene " + aux.Unidades + " unidades");
-					}
-					else
-					{
-						if(aux.Unidades>150 && aux.Unidades<250)
-						{
-							MessageBox.Show("MASO MASO!!! \nLa is tiene " + aux.Unidades + " unidades");
-						}
-						else if(aux.Unidades>250)
-						{
-							MessageBox.Show("BUENA PRODU!!! \nLa is tiene " + aux.Unidades + " unidades");
-						}
-					}
+					MessageBox.Show(aux.ToString());
+					this.linkLabel1.Text = "wms.mercadolibre.com.ar/reportes/shiping-inbound/" + aux.NumeroIs;
+					this.linkLabel2.Text = "wms.mercadolibre.com/reportes/shiping-inbound/" + aux.NumeroIs;
 					this.textBox1.Text = "";
 					return true;
 				}
@@ -89,13 +79,37 @@ namespace produApp
 
 		private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
 		{
+			string aux = "";
 			if (e.KeyChar == (char)13)
 			{
-				if(!this.mostrarProdu(this.textBox1.Text))
+				if(this.textBox1.Text.Length>7)
 				{
-					MessageBox.Show("La is no existe en el reporte seleccionado");
+					aux=this.textBox1.Text.Substring(0, 7);
+					if (!this.mostrarProdu(aux))
+					{
+						MessageBox.Show("La is no existe en el reporte");
+						this.textBox1.Text = "";
+					}
+				}
+				else
+				{
+					if(!this.mostrarProdu(textBox1.Text))
+					{
+						MessageBox.Show("La is no existe en el reporte");
+						this.textBox1.Text = "";
+					}
 				}
 			}
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Process.Start("http://"+linkLabel1.Text);
+		}
+
+		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Process.Start("http://" + linkLabel2.Text);
 		}
 	}
 }
