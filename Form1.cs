@@ -18,6 +18,13 @@ namespace produApp
 	{
 		public ExcelReader reader;
 		private List<Is> _listaIs = new List<Is>();
+
+		public static float _poca;
+		public static float _media;
+		public static float _mucha;
+		public static float _pocaSpd;
+		public static float _mediaSpd;
+		public static float _muchaSpd;
 		public Form1()
 		{
 			InitializeComponent();
@@ -112,6 +119,12 @@ namespace produApp
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.richTextBox1.Text = "";
+		}
+
+		private void calibrarToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form2 formularioCalibrar = new Form2();
+			formularioCalibrar.Show();
 		}
 	}
 }
