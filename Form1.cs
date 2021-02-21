@@ -26,6 +26,7 @@ namespace produApp
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			this.WindowState = FormWindowState.Normal;
 			openFileDialog1 = new OpenFileDialog();
 			this.textBox1.Focus();
 				if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -33,7 +34,6 @@ namespace produApp
 					this.reader = new ExcelReader(openFileDialog1.FileName);
 					this.Cargar();
 				}
-			
 		}
 
 		private void Cargar()
@@ -58,19 +58,16 @@ namespace produApp
 
 		private bool mostrarProdu(string IsRe)
 		{
-			if(textBox1.Text.Equals("raul"))
-			{
-				MessageBox.Show("RAULITO MAQUINA, LAUTICUEVAS GIL");
-				textBox1.Text = "";
-			}
 			foreach(Is aux in this._listaIs)
 			{
 				if(IsRe.Equals(aux.NumeroIs))
 				{
 					MessageBox.Show(aux.ToString());
-					this.linkLabel1.Text = "wms.mercadolibre.com.ar/reportes/shiping-inbound/" + aux.NumeroIs;
-					this.linkLabel2.Text = "wms.mercadolibre.com/reportes/shiping-inbound/" + aux.NumeroIs;
+					this.linkLabel1.Text = "wms.mercadolibre.com.ar/reports/shiping-inbound/" + aux.NumeroIs;
+					this.linkLabel2.Text = "wms.mercadolibre.com/reports/shiping-inbound/" + aux.NumeroIs;
 					this.textBox1.Text = "";
+					this.richTextBox1.Text += aux.ToString();
+					this.richTextBox1.Text += "\n ---------------- \n";
 					return true;
 				}
 			}
@@ -110,6 +107,11 @@ namespace produApp
 		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Process.Start("http://" + linkLabel2.Text);
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			this.richTextBox1.Text = "";
 		}
 	}
 }
