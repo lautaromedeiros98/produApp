@@ -1,6 +1,5 @@
-Poca:System.Windows.Forms.TextBox, Text: 4
-Media:System.Windows.Forms.TextBox, Text: 5
-Mucha:System.Windows.Forms.TextBox, Text: 5
-Poca:System.Windows.Forms.TextBox, Text: 44
-Media:System.Windows.Forms.TextBox, Text: 22
-Mucha:System.Windows.Forms.TextBox, Text: 22
+100
+500
+70
+100
+10

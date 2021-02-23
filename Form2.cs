@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Clases;
 
 namespace produApp
 {
@@ -23,15 +24,14 @@ namespace produApp
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			this.wr = new StreamWriter("config.txt");
+			this.wr = new StreamWriter("config.txt",false);
 			if(Comprobar())
 			{
-				wr.WriteLine("Poca:" + this.textBox1.Text);
-				wr.WriteLine("Media:" + this.textBox2.Text);
-				wr.WriteLine("Mucha:" + this.textBox3.Text);
-				wr.WriteLine("Poca:" + this.textBox4.Text);
-				wr.WriteLine("Media:" + this.textBox5.Text);
-				wr.WriteLine("Mucha:" + this.textBox6.Text);
+				wr.WriteLine(this.textBox1.Text);
+				wr.WriteLine(this.textBox3.Text);
+				wr.WriteLine(this.textBox4.Text);
+				wr.WriteLine(this.textBox6.Text);
+				wr.WriteLine(this.textBox2.Text);
 				MessageBox.Show("Las opciones fueron aplicadas");
 				CargarPostAplicar();
 			}
@@ -40,12 +40,11 @@ namespace produApp
 
 		private void CargarPostAplicar()
 		{
-			Form1._poca = float.Parse(this.textBox1.Text);
-			Form1._media = float.Parse(this.textBox2.Text);
-			Form1._mucha = float.Parse(this.textBox3.Text);
-			Form1._pocaSpd = float.Parse(this.textBox4.Text);
-			Form1._mediaSpd = float.Parse(this.textBox5.Text);
-			Form1._muchaSpd = float.Parse(this.textBox6.Text);
+			Is._poca = float.Parse(this.textBox1.Text);
+			Is._mucha = float.Parse(this.textBox3.Text);
+			Is._pocaSpd = float.Parse(this.textBox4.Text);
+			Is._muchaSpd = float.Parse(this.textBox6.Text);
+			Is._extra = float.Parse(this.textBox2.Text);
 			sr.Close();
 		}
 		
@@ -53,19 +52,18 @@ namespace produApp
 		{
 			this.sr = new StreamReader("config.txt");
 			this.textBox1.Text = sr.ReadLine();
-			this.textBox2.Text = sr.ReadLine();
 			this.textBox3.Text = sr.ReadLine();
 			this.textBox4.Text = sr.ReadLine();
-			this.textBox5.Text = sr.ReadLine();
 			this.textBox6.Text = sr.ReadLine();
+			this.textBox2.Text = sr.ReadLine();
+			CargarPostAplicar();
 			sr.Close();
 		}
 
 
 		private bool Comprobar()
 		{
-			if(this.textBox1.Text == "" || this.textBox2.Text == "" || this.textBox3.Text == "" || this.textBox4.Text == "" ||
-				this.textBox5.Text == "" || this.textBox6.Text == "")
+			if(this.textBox1.Text == "" || this.textBox3.Text == "" || this.textBox2.Text == "" || this.textBox4.Text == "" || this.textBox6.Text == "")
 			{
 				MessageBox.Show("Falta un parametro");
 				return false;
